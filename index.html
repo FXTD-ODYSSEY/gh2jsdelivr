@@ -28,7 +28,7 @@
     .center {
         text-align: center;
     }
-    #link {
+    a {
         display: flex;
         justify-content: center;
     }
@@ -41,12 +41,16 @@
         <br>
         <div class="center">Generate jsDelivr URL</div>
         <input id="jsdelivr" type="text">
-        <a id="link" href="" target="_blank"></a>
+        <a id="cdn" href="" target="_blank"></a>
+        <a id="purge" href="" target="_blank"></a>
+        <a id="data" href="" target="_blank"></a>
     </div>
 </body>
 
 <script type="text/javascript">
-    link = document.getElementById("link");
+    cdn = document.getElementById("cdn");
+    purge = document.getElementById("purge");
+    data = document.getElementById("data");
     github_input = document.getElementById("github");
     jsdelivr_input = document.getElementById("jsdelivr");
     github_input.addEventListener("keyup", function (event) {
@@ -55,8 +59,16 @@
         url = url.replace("/blob/", "@")
 
         jsdelivr_input.value = url
-        link.href = url
-        link.text = url
+        cdn.href = url
+        cdn.text = url
+        
+        url = url.replace("cdn.jsdelivr.net","purge.jsdelivr.net")
+        purge.href = url
+        purge.text = url
+
+        url = url.replace("purge.jsdelivr.net","data.jsdelivr.net")
+        data.href = url
+        data.text = url
 
     });
 </script>

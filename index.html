@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Github Url To jsdeliver</title>
+
+</head>
+
+<style>
+    input {
+        width: 100%;
+        font-size: 25px;
+        height: 30px;
+        margin: 2rem;
+    }
+
+    .container {
+        width: 60%;
+        position: absolute;
+        vertical-align: cen;
+        top: 40%;
+        margin: 0 20%;
+        display: table-row;
+    }
+
+    .center {
+        text-align: center;
+    }
+    #link {
+        display: flex;
+        justify-content: center;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="center">Input Github URL</div>
+        <input id="github" type="text">
+        <br>
+        <div class="center">Generate jsDelivr URL</div>
+        <input id="jsdelivr" type="text">
+        <a id="link" href="" target="_blank"></a>
+    </div>
+</body>
+
+<script type="text/javascript">
+    link = document.getElementById("link");
+    github_input = document.getElementById("github");
+    jsdelivr_input = document.getElementById("jsdelivr");
+    github_input.addEventListener("keyup", function (event) {
+        url = github_input.value
+        url = url.replace(/.*github.com/gm, "https://cdn.jsdelivr.net/gh")
+        url = url.replace("/blob/", "@")
+
+        jsdelivr_input.value = url
+        link.href = url
+        link.text = url
+
+    });
+</script>
+
+</html>

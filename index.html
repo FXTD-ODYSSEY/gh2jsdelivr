@@ -55,6 +55,7 @@
         url = github_input.value
         url = url.replace(/.*github.com/gm, "https://cdn.jsdelivr.net/gh")
         url = url.replace("/blob/", "@")
+        url = url.replace("/tree/", "@")
 
         jsdelivr_input.value = url
         cdn.href = url
